@@ -1,0 +1,7 @@
+BEGIN:VJOURNAL
+DTSTAMP:20220101T000000Z
+UID:example-journal-1@example.com
+DTSTART;VALUE=DATE:20220101
+SUMMARY:Daily Notes
+DESCRIPTION:This is an example journal entry.
+END:VJOURNAL

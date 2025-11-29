@@ -26,6 +26,7 @@ from icalendar.attr import (
     url_property,
 )
 from icalendar.cal.component import Component
+from icalendar.cal.examples import get_example
 from icalendar.error import IncompleteComponent
 
 if TYPE_CHECKING:
@@ -246,6 +247,11 @@ class Journal(Component):
         journal.status = status
         journal.attendees = attendees
         return journal
+
+    @classmethod
+    def example(cls, name: str = "example") -> "Journal":
+        """Return the journal example with the given name."""
+        return cls.from_ical(get_example("journals", name))
 
 
 __all__ = ["Journal"]

@@ -14,6 +14,7 @@ from icalendar.attr import (
     url_property,
 )
 from icalendar.cal.component import Component
+from icalendar.cal.examples import get_example
 
 if TYPE_CHECKING:
     from icalendar.prop import vCalAddress
@@ -132,6 +133,11 @@ class FreeBusy(Component):
         if cls._validate_new:
             cls._validate_start_and_end(start, end)
         return free_busy
+
+    @classmethod
+    def example(cls, name: str = "example") -> "FreeBusy":
+        """Return the free/busy example with the given name."""
+        return cls.from_ical(get_example("freebusy", name))
 
 
 __all__ = ["FreeBusy"]

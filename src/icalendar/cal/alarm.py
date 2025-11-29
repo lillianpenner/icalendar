@@ -19,6 +19,7 @@ from icalendar.attr import (
     uid_property,
 )
 from icalendar.cal.component import Component
+from icalendar.cal.examples import get_example
 
 if TYPE_CHECKING:
     import uuid
@@ -275,6 +276,11 @@ class Alarm(Component):
         alarm.uid = uid
         alarm.attendees = attendees
         return alarm
+
+    @classmethod
+    def example(cls, name: str = "rfc_5545_absolute_alarm_example") -> "Alarm":
+        """Return the alarm example with the given name."""
+        return cls.from_ical(get_example("alarms", name))
 
 
 __all__ = ["Alarm"]
